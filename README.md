@@ -1,66 +1,123 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# motorcycles-catalog.local
 
-## About Laravel
+A web application for placing ads for the sale of motorcycles
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Demo
+![Preview of the application](/screen.png)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tech Stack
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Client:** react, react-bootstrap, react-router, vite
 
-## Learning Laravel
+**Server:** Php, Laravel, MySQL, OpenServer 6.0 (optional)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Installation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Install with GIT, composer (php) and node (js)
 
-## Laravel Sponsors
+```bash
+  git clone https://github.com/AtmSpheree/motorcycles-catalog.local.git
+  cd motorcycles-catalog.local
+  composer install
+  cd frontend
+  npm install
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Next create Database in your MySQL
+in my case, I am using MySQL-8.2, MotorcyclesCatalog database, root user without password.
 
-### Premium Partners
+### Next configure the environment files
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+[`.env`](/.env.example) of Laravel project:
 
-## Contributing
+```python
+# Your app name
+APP_NAME=motorcycles-catalog.local
+# ...
+# Your timezone
+APP_TIMEZONE=Europe/Moscow
+# ...
+# Your app URL
+APP_URL=https://motorcycles-catalog.local
+# ...
+# Database:
+# ...
+# Database configuration (defaults)
+DB_CONNECTION=mysql
+DB_HOST=MySQL-8.2
+DB_PORT=3306
+# Your database name
+DB_DATABASE=DiplomMotorcycle
+# Your database username
+DB_USERNAME=root
+# Your password (my root has no password)
+DB_PASSWORD=
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+[`.env`](/frontend/.env.example) of React project:
 
-## Code of Conduct
+```python
+# The URL leading to the API route on your server.
+# All requests from the client side will be sent to it.
+VITE_API_URL = https://motorcycles-catalog.local/api
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Next configure Laravel project (generate new app key and migrate database)
 
-## Security Vulnerabilities
+```bash
+  cd motorcycles-catalog.local
+  php artisan key:generate
+  php artisan migrate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Enjoy
+## Run Locally
 
-## License
+### The entire project is already configured to run using OpenServer 6.0 (thanks to the settings in .osp). However, you can run it locally using the built-in Laravel server.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+  cd motorcycles-catalog.local
+  php artisan serve
+```
+
+### If you, like me, use OpenServer 6.0, then simply transfer the project to the OpenServer project directory. (`C:\OSPanel\home\{ laravel-project }`)
+
+### After that, start the local React development server.
+
+```bash
+  cd motorcycles-catalog.local
+  cd frontend
+  npm run dev
+```
+
+### Next, simply access the client side using the URL of the running server. (by default: http://localhost:5173)
+
+### When you finish development, you will need to create a build of the React project and upload it to the [`public`](/public) folder of the Laravel project so that the user receives your build when requesting default `/` address of the web server.
+
+```bash
+  cd motorcycles-catalog.local
+  cd frontend
+  npm run build
+```
+
+### Next, move the entire contents of the [`dist`](/frontend/dist) folder with the replacement to the [`public`](/public) folder.
+
+### Enjoy
+## API Reference
+
+### The API Reference is presented as a PostMan collection ([`motorcycles-catalog.local.postman_collection.json`](/motorcycles-catalog.local.postman_collection.json)). Upload it to your PostMan using the Import function. Also, in the Variables section of the collection itself, specify:
+
+```python
+# Your API url
+host = https://motorcycles-catalog.local/api
+# The token of the user who is being authorized
+token = 
+```
+
+### The collection is also divided into several groups. For those groups where authorization is required, the token is automatically imported from the `token` variable from the settings, so you need to specify it there.
+## Appendix
+
+### To create a user with administrator rights, you need to register the user (using the API or through the client side) and manually change the value of `role` from 0 to 1 in the database in the `users` table.
+### Also, the entire project has already been configured in the Russian locale. Therefore, validation errors are already being returned in Russian.
