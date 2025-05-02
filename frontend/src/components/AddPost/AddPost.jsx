@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Alert, Button, Container, Form, Image, Modal } from "react-bootstrap";
 import { useLocation, useNavigate, useParams } from "react-router";
 import { DataContext } from "../../context/dataContext";
+import getImagesErrors from "../../utils/getImagesErrors";
 
 export default function AddPost() {
   const navigator = useNavigate();
@@ -193,7 +194,7 @@ export default function AddPost() {
           volume: [],
           power: [],
           specifications: [],
-          images: 'images[]' in response.errors ? response.errors['images[]'] : [],
+          images: getImagesErrors(response.errors),
           ...response.errors});
       } else {
         let response = await data.json();

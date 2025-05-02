@@ -35,6 +35,13 @@ class PostRequest extends FormRequest
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'validation.extensions' => '123'
+        ];
+    }
+
     protected function failedValidation(\Illuminate\Contracts\Validation\Validator $validator) {
         throw new HttpResponseException(response()->json(['message' => 'Invalid fields', 'errors' => $validator->errors()], 422, 
         ['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'],
