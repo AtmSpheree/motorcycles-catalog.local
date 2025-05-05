@@ -208,7 +208,7 @@ export default function Catalog() {
                     {item.motorcycle.name} {item.brand} {item.model}
                   </Card.Title>
                   <Card.Text>
-                    Объем двигателя: {item.volume} л.<br />
+                    Объем двигателя: {item.volume} см³<br />
                     Мощность: {item.power} л.с.<br />
                   </Card.Text>
                   <div className="d-flex justify-content-between align-items-end gap-2">

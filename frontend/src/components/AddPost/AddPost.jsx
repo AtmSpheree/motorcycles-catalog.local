@@ -422,7 +422,7 @@ export default function AddPost() {
           </Form.Group>
   
           <Form.Group controlId="volume" className="mb-3">
-            <Form.Label>Объем двигателя (л.)</Form.Label>
+            <Form.Label>Объем двигателя (см³)</Form.Label>
             <Form.Control
               type="number"
               min={10}

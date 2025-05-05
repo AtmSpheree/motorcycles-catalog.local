@@ -73,6 +73,12 @@ VITE_API_URL = https://motorcycles-catalog.local/api
 ```
 
 ### Enjoy
+
+### ⚠ Warning. The link from the public directory to the storage directory contains a relative path, so you may need to recreate it using the command:
+```bash
+  php artisan storage:link
+```
+
 ## Run Locally
 
 ### The entire project is already configured to run using OpenServer 6.0 (thanks to the settings in .osp). However, you can run it locally using the built-in Laravel server.
