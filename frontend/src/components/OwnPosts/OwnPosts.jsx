@@ -72,7 +72,7 @@ export default function OwnPosts() {
   return (<>
     {dataContext.data?.posts !== null &&
       <Container className="mt-4">
-        <h2>Мои объявления</h2>
+        <h2>Мои записи</h2>
         <Button
           variant="primary"
           size="sl"
