@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->integer('status');
-            $table->string('description');
+            $table->string('description', 5000);
             $table->foreignId('motorcycle_id')->constrained('motorcycles')->onDelete('cascade');
             $table->string('model');
             $table->string('brand');
             $table->integer('volume');
             $table->integer('power');
-            $table->string('specifications');
+            $table->string('specifications', 5000);
             $table->timestamps();
         });
     }

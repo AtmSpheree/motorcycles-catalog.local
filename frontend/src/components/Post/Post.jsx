@@ -174,10 +174,10 @@ function Post() {
             }
             <Col md={4}>
               <h3>{post.motorcycle.name} {post.brand} {post.model}</h3>
-              <p><b>Объем двигателя:</b> {post.volume} л.</p>
+              <p><b>Объем двигателя:</b> {post.volume} см³</p>
               <p><b>Мощность:</b> {post.power} л.с.</p>
-              <p><b>Описание:</b> {post.description}</p>
-              <p><b>Технические характеристики:</b> {post.specifications}</p>
+              <p style={{wordWrap: 'break-word'}}><b>Описание:</b> {post.description}</p>
+              <p style={{wordWrap: 'break-word'}}><b>Технические характеристики:</b> {post.specifications}</p>
               <p><b>Дата объявления:</b> {post.date}</p>
               {((dataContext.data?.posts !== null && dataContext.data?.posts.filter((item) => item.id === post.id).length > 0) ||
                 (dataContext.data?.profile !== null &&dataContext.data?.profile.role === 'admin')) && <>

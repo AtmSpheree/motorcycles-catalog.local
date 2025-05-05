@@ -23,13 +23,13 @@ class UpdatePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description' => 'string',
+            'description' => 'string|max:5000',
             'motorcycle' => 'exists:motorcycles,name',
             'brand' => 'string',
             'model' => 'string',
             'volume' => 'integer',
             'power' => 'integer',
-            'specifications' => 'string'
+            'specifications' => 'string|max:5000'
         ];
     }
 

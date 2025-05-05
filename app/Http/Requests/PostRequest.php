@@ -23,13 +23,13 @@ class PostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description' => 'required|string',
+            'description' => 'required|string|max:5000',
             'motorcycle' => 'required|exists:motorcycles,name',
             'brand' => 'required|string',
             'model' => 'required|string',
             'volume' => 'required|integer|min:10',
             'power' => 'required|integer|min:10',
-            'specifications' => 'required|string',
+            'specifications' => 'required|string|max:5000',
             'images' => 'array|min:1|max:5',
             'images.*' => 'required|image|extensions:png,jpg,jpeg|max:5120'
         ];
