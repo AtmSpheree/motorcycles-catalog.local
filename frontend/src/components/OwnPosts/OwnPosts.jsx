@@ -185,9 +185,9 @@ export default function OwnPosts() {
         </Row>
         <Modal show={modalShow !== false} onHide={() => setModalShow(false)}>
           <Modal.Header closeButton>
-            <Modal.Title>Удаление объявления</Modal.Title>
+            <Modal.Title>Удаление записи</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Вы действительно хотите удалить это объявление?</Modal.Body>
+          <Modal.Body>Вы действительно хотите удалить эту запись?</Modal.Body>
           <Modal.Footer>
             <Button variant="danger" onClick={() => deletePost()}>
               Удалить
