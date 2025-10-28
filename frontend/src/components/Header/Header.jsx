@@ -69,8 +69,8 @@ export default function Header({ getProfile }) {
                 {dataContext.data?.profile !== null &&
                   <>
                     <Nav.Link onClick={(e) => navigator('/profile')}>Профиль</Nav.Link>
-                    <Nav.Link onClick={(e) => navigator('/ownposts')}>Мои объявления</Nav.Link>
-                    <Nav.Link onClick={(e) => navigator('/addpost', {state: null})}>Добавить объявление</Nav.Link>
+                    <Nav.Link onClick={(e) => navigator('/ownposts')}>Мои записи</Nav.Link>
+                    <Nav.Link onClick={(e) => navigator('/addpost', {state: null})}>Добавить запись</Nav.Link>
                     {dataContext.data?.profile.role === 'admin' &&
                       <>
                         <Nav.Link onClick={(e) => navigator('/posts', {state: null})}>Модерация</Nav.Link>

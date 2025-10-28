@@ -274,14 +274,14 @@ function Post() {
                       className="me-2"
                       onClick={(e) => setModalShow(true)}
                     >
-                      Удалить объявление
+                      Удалить запись
                     </Button>
                     <Button
                       variant="primary"
                       className='me-2'
                       onClick={(e) => navigator(`/posts/${params.postId}/change`, {state: {prev: '/ownposts'}})}
                     >
-                      Редактировать объявление
+                      Редактировать запись
                     </Button>
                   </div>
                 }

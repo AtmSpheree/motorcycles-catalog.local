@@ -6,6 +6,9 @@ A web application for placing ads for the sale of motorcycles
 ## Demo
 ![Preview of the application](/screen.png)
 
+## Assets
+### You can find the assets (screenshots of the working application) [here](/assets).
+
 ## Tech Stack
 
 **Client:** react, react-bootstrap, react-router, vite

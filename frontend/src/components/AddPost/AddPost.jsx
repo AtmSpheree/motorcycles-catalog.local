@@ -368,7 +368,7 @@ export default function AddPost() {
     }
     {(motorcycles !== null && ((params.postId && isFormShown === true) || (!params.postId))) &&
       <Container style={{ maxWidth: '600px' }} className="mt-4">
-        <h2>{params.postId ? 'Редактирование объявления' : 'Добавление объявления'}</h2>
+        <h2>{params.postId ? 'Редактирование записи' : 'Добавление записи'}</h2>
         <Form onSubmit={params.postId ? onChangeFormSubmit : onFormSubmit}>
           <Form.Group controlId="motorcycle" className="mb-3">
             <Form.Label>Тип мотоцикла</Form.Label>
@@ -495,13 +495,13 @@ export default function AddPost() {
 
           {(params.postId && !checkSimilarity()) &&
             <Button variant="primary" type="submit" className="w-100" style={{marginBottom: '10px'}}>
-              Редактировать объявление
+              Редактировать запись
             </Button>
           }
 
           {isAlert &&
             <Alert variant='success'>
-              Объявление успешно отредактировано.
+              Запись успешно отредактирована.
             </Alert>
           }
 
@@ -561,7 +561,7 @@ export default function AddPost() {
 
           {!params.postId  &&
             <Button variant="primary" type="submit" className="w-100" style={{marginBottom: '10px'}}>
-              Добавить объявление
+              Добавить запись
             </Button>
           }
         </Form>
